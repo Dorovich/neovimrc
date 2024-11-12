@@ -15,18 +15,29 @@ vim.opt.termguicolors = true
 
 vim.g.mapleader = ','
 
+vim.keymap.set('n', '<leader>e', ':cwindow<cr>', { silent = true })
 vim.keymap.set('n', '<leader>r', ':%s//g<left><left>', nil)
+vim.keymap.set('n', 'U', '<c-r>', nil)
 vim.keymap.set('n', 'gb', ':buffers<cr>:b<space>', nil)
 vim.keymap.set('n', 'ñ', ':', nil)
-vim.keymap.set('n', 'U', '<c-r>', nil)
-vim.keymap.set('x', 'ñ', ':', nil)
 vim.keymap.set('x', '<', '<gv', nil)
 vim.keymap.set('x', '>', '>gv', nil)
+vim.keymap.set('x', 'ñ', ':', nil)
 
 vim.api.nvim_create_autocmd({ 'FileType' }, {
 	pattern = { 'c', 'cpp' },
 	callback = function()
 		vim.opt_local.colorcolumn = '80'
+		vim.keymap.set('n', '<c-j>', ':cnext!<cr>', { buffer = true })
+		vim.keymap.set('n', '<c-k>', ':cprev!<cr>', { buffer = true })
+	end
+})
+
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+	pattern = { 'qf' },
+	callback = function()
+		vim.keymap.set('n', '<c-j>', ':cnext!<cr>', { buffer = true, silent = true })
+		vim.keymap.set('n', '<c-k>', ':cprev!<cr>', { buffer = true, silent = true })
 	end
 })
 
