@@ -1,6 +1,6 @@
 vim.opt.autochdir = true
 vim.opt.cindent = true
-vim.opt.cinoptions = 'l1,t0'
+vim.opt.cinoptions = ':0,l1,t0'
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.ignorecase = true
 vim.opt.laststatus = 0
@@ -8,10 +8,10 @@ vim.opt.lazyredraw = true
 vim.opt.makeprg = 'make -j$(nproc)'
 vim.opt.smartcase = true
 vim.opt.swapfile = false
+vim.opt.termguicolors = true
 vim.opt.title = true
 vim.opt.undofile = true
 vim.opt.wrap = false
-vim.opt.termguicolors = true
 
 vim.g.mapleader = ','
 
