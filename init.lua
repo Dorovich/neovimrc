@@ -46,6 +46,9 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
 	callback = function()
 		vim.opt_local.wrap = true
 		vim.opt_local.linebreak = true
+		fname_noext = vim.fn.expand("%:t:r")
+		fname = vim.fn.expand("%:t")
+		vim.opt_local.makeprg = "pandoc -s -o "..fname_noext..".html".." "..fname
 	end
 })
 
